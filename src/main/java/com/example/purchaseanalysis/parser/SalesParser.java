@@ -2,6 +2,7 @@ package com.example.purchaseanalysis.parser;
 
 import com.example.purchaseanalysis.model.Sales;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,6 +21,7 @@ public class SalesParser {
     @Value("${upload.path}")
     private String uploadPath;
 
+    @Scheduled(fixedRateString = "${fixedRate.in.milliseconds}")
     public void parser() throws JAXBException, IOException {
 
         Stream<Path> walk = Files.walk(Paths.get(uploadPath));
