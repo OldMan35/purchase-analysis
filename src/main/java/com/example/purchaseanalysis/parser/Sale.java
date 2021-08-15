@@ -4,8 +4,7 @@ import lombok.*;
 
 import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Getter
 @Setter
