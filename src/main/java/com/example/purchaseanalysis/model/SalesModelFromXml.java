@@ -1,6 +1,9 @@
 package com.example.purchaseanalysis.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,28 +11,29 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 @AllArgsConstructor
-@XmlRootElement
+@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name="SALES")
 public class SalesModelFromXml {
-    @XmlElement
-    private int card_number;
 
     @XmlElement
-    private int data;
+    private int CARD_NUMBER;
 
     @XmlElement
-    private int product_code;
+    private int DATA;
 
     @XmlElement
-    private String name;
+    private int PRODUCT_CODE;
 
     @XmlElement
-    private BigDecimal price;
+    private String NAME;
 
     @XmlElement
-    private int count;
+    private int PRICE;
 
-    public SalesModelFromXml() {
-    }
+    @XmlElement
+    private int COUNT;
 }
