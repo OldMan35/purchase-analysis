@@ -12,18 +12,18 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SALE", propOrder = {"CARD_NUMBER",
-        "DATA", "PRODUCTS"})
+@XmlType(name = "sale", propOrder = {"card_number",
+        "data", "products"})
 public class Sale {
 
     @XmlElement(required = true)
-    private int CARD_NUMBER;
+    private int card_number;
 
     @XmlElement(required = true)
-    private int DATA;
+    private int data;
 
     @XmlElement(required = true)
-    private Products PRODUCTS = new Products();
+    private Products products = new Products();
 
     @Getter
     @Setter
@@ -31,13 +31,13 @@ public class Sale {
     @AllArgsConstructor
     @NoArgsConstructor
     @XmlRootElement
-    @XmlType(name = "PRODUCTS", propOrder = {"PRODUCT_CODE",
-            "NAME", "PRICE", "COUNT"})
+    @XmlType(name = "products", propOrder = {"product_code",
+            "name", "price", "count"})
     public static class Products {
-        private int PRODUCT_CODE;
-        private String NAME;
-        private BigDecimal PRICE;
-        private int COUNT;
+        private int product_code;
+        private String name;
+        private BigDecimal price;
+        private int count;
 
     }
 
