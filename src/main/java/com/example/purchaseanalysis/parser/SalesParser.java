@@ -23,13 +23,13 @@ public class SalesParser {
     public void parser() throws JAXBException, IOException {
 
         Stream<Path> walk = Files.walk(Paths.get(uploadPath));
-        List<String> getFileNameList = walk.filter(Files::isRegularFile)
+        List<String> fileNameList = walk.filter(Files::isRegularFile)
                 .map(Path::toString).collect(Collectors.toList());
 
         JAXBContext context = JAXBContext.newInstance(Sales.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
-        for (int i = 0; i < getFileNameList.size(); i++) {
-            Sales sales = (Sales) unmarshaller.unmarshal(new File(getFileNameList.get(i)));
+        for (int i = 0; i < fileNameList.size(); i++) {
+            Sales sales = (Sales) unmarshaller.unmarshal(new File(fileNameList.get(i)));
         }
 
     }

@@ -13,8 +13,5 @@ public class SalesService {
         this.salesRepository = salesRepository;
     }
 
-    public void checkAndDownloadNewFile() {
-
-    }
 
 }
