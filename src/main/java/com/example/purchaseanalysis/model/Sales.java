@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
@@ -16,13 +18,13 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "purchase")
+@Table(name = "sales")
 @XmlRootElement
-public class Purchase {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Sales {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @XmlElement
     private int id;
 
     @XmlElement
