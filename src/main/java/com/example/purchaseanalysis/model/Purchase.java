@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
@@ -21,20 +22,25 @@ public class Purchase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @XmlElement
     private int id;
 
-    private int cardNumber;
+    @XmlElement
+    private int card_number;
 
-    private int dataCheque;
+    @XmlElement
+    private int data;
 
-    private String purchase;
+    @XmlElement
+    private int product_code;
 
-    private int articleNumber;
+    @XmlElement
+    private String name;
 
-    private String productName;
+    @XmlElement
+    private BigDecimal price;
 
-    private int quantityProduct;
-
-    private BigDecimal costGoods;
+    @XmlElement
+    private int count;
 
 }
