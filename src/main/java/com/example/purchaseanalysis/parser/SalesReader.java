@@ -15,22 +15,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class SalesParser {
+public class SalesReader {
 
     @Value("${upload.path}")
     private String uploadPath;
 
-    @Scheduled(fixedRateString = "${fixedRate.in.milliseconds}")
+
     public void parser() throws JAXBException, IOException {
 
         Stream<Path> walk = Files.walk(Paths.get(uploadPath));
         List<String> fileNameList = walk.filter(Files::isRegularFile)
                 .map(Path::toString).collect(Collectors.toList());
 
-        JAXBContext context = JAXBContext.newInstance(SalesModelFromXml.class);
+        JAXBContext context = JAXBContext.newInstance(SalesXml.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         for (int i = 0; i < fileNameList.size(); i++) {
-            SalesModelFromXml sales = (SalesModelFromXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
+            SalesXml sales = (SalesXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
         }
 
     }

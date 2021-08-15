@@ -1,7 +1,7 @@
 package com.example.purchaseanalysis;
 
 import com.example.purchaseanalysis.parser.Sale;
-import com.example.purchaseanalysis.parser.SalesModelFromXml;
+import com.example.purchaseanalysis.parser.SalesXml;
 import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBContext;
@@ -20,21 +20,19 @@ import java.util.stream.Stream;
 public class test {
 
     public static void main(String[] args) throws JAXBException, IOException, ParserConfigurationException, SAXException {
-        SalesModelFromXml salesModelFromXml = new SalesModelFromXml();
+        SalesXml salesXml = new SalesXml();
         Sale sale = new Sale();
 
         Stream<Path> walk = Files.walk(Paths.get("C:\\TestMaxi"));
         List<String> fileNameList = walk.filter(Files::isRegularFile)
                 .map(Path::toString).collect(Collectors.toList());
 
-        JAXBContext context = JAXBContext.newInstance(SalesModelFromXml.class);
+        JAXBContext context = JAXBContext.newInstance(SalesXml.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         for (int i = 0; i < fileNameList.size(); i++) {
-            SalesModelFromXml sales = (SalesModelFromXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
+            SalesXml sales = (SalesXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
             System.out.println(sales);
         }
-
-
 
 
 //        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();

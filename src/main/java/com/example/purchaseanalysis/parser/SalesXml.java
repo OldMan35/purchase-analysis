@@ -1,12 +1,12 @@
 package com.example.purchaseanalysis.parser;
 
-import com.example.purchaseanalysis.parser.Sale;
 import lombok.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,12 +14,11 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@XmlRootElement(name = "SALES")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="SALES")
-public class SalesModelFromXml {
+public class SalesXml {
 
-    @XmlElement
-    private List<Sale> SALE;
-
+    @XmlElement(name = "SALE")
+    private List<Sale> list = new ArrayList<>();
 
 }
