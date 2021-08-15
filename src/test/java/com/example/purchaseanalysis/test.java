@@ -1,6 +1,7 @@
 package com.example.purchaseanalysis;
 
 import com.example.purchaseanalysis.model.Sales;
+import com.example.purchaseanalysis.model.SalesModelFromXml;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -27,10 +28,10 @@ public class test {
         for (String string : fileNameList) {
             System.out.println(string);
         }
-        JAXBContext context = JAXBContext.newInstance(Sales.class);
+        JAXBContext context = JAXBContext.newInstance(SalesModelFromXml.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         for (int i = 0; i < fileNameList.size(); i++) {
-            Sales sales = (Sales) unmarshaller.unmarshal(new File(fileNameList.get(i)));
+            SalesModelFromXml sales = (SalesModelFromXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
         }
     }
 }
