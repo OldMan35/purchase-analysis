@@ -31,7 +31,7 @@ public class Sale {
     @AllArgsConstructor
     @NoArgsConstructor
     @XmlRootElement
-    @XmlType(name = "products", propOrder = {"product_code",
+    @XmlType(name = "product", propOrder = {"product_code",
             "name", "price", "count"})
     public static class Products {
         private int product_code;
