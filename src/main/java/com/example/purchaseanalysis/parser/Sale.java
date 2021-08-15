@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "sale", propOrder = {"card_number",
+@XmlType(name = "SALE", propOrder = {"card_number",
         "data", "products"})
 public class Sale {
 
@@ -31,15 +33,12 @@ public class Sale {
     @AllArgsConstructor
     @NoArgsConstructor
     @XmlRootElement
-    @XmlType(name = "product", propOrder = {"product_code",
-            "name", "price", "count"})
+    @XmlType(name = "PRODUCTS")
     public static class Products {
         private int product_code;
         private String name;
         private BigDecimal price;
         private int count;
-
     }
-
-
 }
+
