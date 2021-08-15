@@ -1,13 +1,10 @@
 package com.example.purchaseanalysis;
 
-import com.example.purchaseanalysis.parser.Sale;
 import com.example.purchaseanalysis.parser.SalesXml;
-import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,9 +16,8 @@ import java.util.stream.Stream;
 
 public class test {
 
-    public static void main(String[] args) throws JAXBException, IOException, ParserConfigurationException, SAXException {
+    public static void main(String[] args) throws JAXBException, IOException {
         SalesXml salesXml = new SalesXml();
-        Sale sale = new Sale();
 
         Stream<Path> walk = Files.walk(Paths.get("C:\\TestMaxi"));
         List<String> fileNameList = walk.filter(Files::isRegularFile)
@@ -33,47 +29,5 @@ public class test {
             SalesXml sales = (SalesXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
             System.out.println(sales);
         }
-
-
-//        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-//        Document document = documentBuilderFactory.newDocumentBuilder().parse(new File(fileNameList.get(1)));
-//        Node rootNode = document.getFirstChild();
-//        System.out.println("FirstChild" + " " + rootNode.getNodeName()); //Sales
-//
-//        NodeList rootChild = rootNode.getChildNodes();
-//        Node saleNode = null;
-//        for (int i = 0; i < rootChild.getLength(); i++) {
-////            System.out.println("ChildNodes" + " " + rootChild.item(i).getNodeName());
-//            if ("SALE".equals(rootChild.item(i).getNodeName())) {//Sale
-//                saleNode = rootChild.item(i);
-//            }
-//        }
-//        assert saleNode != null;
-//
-//        NodeList saleChild = saleNode.getChildNodes();
-//        Node productsNode = null;
-//        for (int i = 0; i < saleChild.getLength(); i++) {
-//            System.out.println("saleChild" + " " + saleChild.item(i).getNodeName());
-//            if ("PRODUCTS".equals(saleChild.item(i).getNodeName())) {//products
-//                productsNode = saleChild.item(i);
-//            }
-//        }
-////        sale.setCARD_NUMBER();
-//
-//        assert productsNode != null;
-//
-//        NodeList productsChild = productsNode.getChildNodes();
-//        Node productNode = null;
-//        for (int i = 0; i < productsChild.getLength(); i++) {
-//            System.out.println("productsChild" + " " + productsChild.item(i).getNodeName());
-//            if ("PRODUCT".equals(productsChild.item(i).getNodeName())) {//product
-//                productNode = productsChild.item(i);
-//            }
-//        }
-//        assert productNode != null;
-//        NodeList productChild = productNode.getChildNodes();
-//        for (int i = 0; i < productChild.getLength(); i++) {
-//            System.out.println("productChild" + " " + productChild.item(i).getNodeName());
-//        }
     }
 }
