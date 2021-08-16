@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Getter
-@Setter
-@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement
@@ -26,9 +24,7 @@ public class Sale {
     @XmlElement(required = true)
     private List<Products> products = new ArrayList<>();
 
-    @Getter
-    @Setter
-    @ToString
+    @Data
     @AllArgsConstructor
     @NoArgsConstructor
     @XmlRootElement
@@ -38,9 +34,7 @@ public class Sale {
 
     }
 
-    @Getter
-    @Setter
-    @ToString
+    @Data
     @AllArgsConstructor
     @NoArgsConstructor
     @XmlRootElement
