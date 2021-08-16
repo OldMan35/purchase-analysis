@@ -1,7 +1,6 @@
 package com.example.purchaseanalysis.parser;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,10 +26,10 @@ public class SalesReader {
         List<String> fileNameList = walk.filter(Files::isRegularFile)
                 .map(Path::toString).collect(Collectors.toList());
 
-        JAXBContext context = JAXBContext.newInstance(SalesXml.class);
+        JAXBContext context = JAXBContext.newInstance(Sales.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         for (int i = 0; i < fileNameList.size(); i++) {
-            SalesXml sales = (SalesXml) unmarshaller.unmarshal(new File(fileNameList.get(i)));
+            Sales sales = (Sales) unmarshaller.unmarshal(new File(fileNameList.get(i)));
         }
 
     }

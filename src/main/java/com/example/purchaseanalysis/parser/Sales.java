@@ -7,22 +7,32 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement
+@XmlRootElement(name = "SALES")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SALE", propOrder = {"card_number",
-        "data", "products"})
-public class Sale {
+public class Sales {
 
-    @XmlElement(required = true)
-    private int card_number;
-    @XmlElement(required = true)
-    private int data;
-    @XmlElement(required = true)
-    private List<Products> products = new ArrayList<>();
+    @XmlElement(name = "SALE")
+    private List<Sale> sale = new ArrayList<>();
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @XmlRootElement
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "SALE", propOrder = {"card_number",
+            "data", "products"})
+    public static class Sale {
+
+        @XmlElement(required = true)
+        private int card_number;
+        @XmlElement(required = true)
+        private int data;
+        @XmlElement(required = true)
+        private List<Products> products = new ArrayList<>();
+    }
 
     @Data
     @AllArgsConstructor
