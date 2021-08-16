@@ -20,7 +20,7 @@ public class Sales {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    @XmlRootElement
+    @XmlRootElement(name = "SALE")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "SALE", propOrder = {"card_number",
             "data", "products"})
@@ -37,9 +37,11 @@ public class Sales {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    @XmlRootElement
-    @XmlType(name = "PRODUCTS")
+    @XmlRootElement(name = "PRODUCTS")
+//    @XmlType(name = "PRODUCTS")
     public static class Products {
+
+        @XmlElement(name = "PRODUCT")
         List<Product> product = new ArrayList<>();
 
     }
