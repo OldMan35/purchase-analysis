@@ -1,5 +1,6 @@
 package com.example.purchaseanalysis;
 
+import com.example.purchaseanalysis.parser.Sale;
 import com.example.purchaseanalysis.parser.SalesXml;
 
 import javax.xml.bind.JAXBContext;
@@ -17,7 +18,6 @@ import java.util.stream.Stream;
 public class test {
 
     public static void main(String[] args) throws JAXBException, IOException {
-        SalesXml salesXml = new SalesXml();
 
         Stream<Path> walk = Files.walk(Paths.get("C:\\TestMaxi"));
         List<String> fileNameList = walk.filter(Files::isRegularFile)
