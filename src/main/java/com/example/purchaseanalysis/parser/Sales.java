@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SALES")
 public class Sales {
+
+    @XmlElement(name = "sale")
+    private List<Sale> sale = new ArrayList<>();
 
     public Sales() {
     }
@@ -16,10 +17,6 @@ public class Sales {
         this.sale = sale;
     }
 
-    @XmlAnyElement
-    private List<Sale> sale = new ArrayList<>();
-
-    @XmlElement(name = "SALE")
     public void setSale(List<Sale> sale) {
         this.sale = sale;
     }

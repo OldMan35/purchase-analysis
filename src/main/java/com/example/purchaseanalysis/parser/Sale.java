@@ -7,7 +7,7 @@ import java.util.List;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SALE", propOrder = {"card_number", "data", "products"})
+@XmlType(name = "sale", propOrder = {"card_number", "data", "products"})
 public class Sale {
 
     @XmlElement(required = true)

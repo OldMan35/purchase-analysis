@@ -1,31 +1,66 @@
 package com.example.purchaseanalysis.parser;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PRODUCTS")
+@XmlType(name = "products")
 public class Products {
 
     @XmlElement(required = true)
+    Product product = new Product();
 
-    List<Product> product = new ArrayList<>();
+    @XmlRootElement
+    @XmlType(name = "product", propOrder = {"product_code", "name", "price", "count"})
+    public static class Product {
 
-    public Products() {
-    }
+        private int product_code;
+        private String name;
+        private BigDecimal price;
+        private int count;
 
-    public Products(List<Product> product) {
-        this.product = product;
-    }
+        public Product() {
+        }
 
-    public List<Product> getProduct() {
-        return product;
-    }
+        public Product(int product_code, String name, BigDecimal price, int count) {
+            this.product_code = product_code;
+            this.name = name;
+            this.price = price;
+            this.count = count;
+        }
 
-    @XmlElement(name = "product")
-    public void setProduct(List<Product> product) {
-        this.product = product;
+        public int getProduct_code() {
+            return product_code;
+        }
+
+
+        public void setProduct_code(int product_code) {
+            this.product_code = product_code;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public BigDecimal getPrice() {
+            return price;
+        }
+
+        public void setPrice(BigDecimal price) {
+            this.price = price;
+        }
+
+        public int getCount() {
+            return count;
+        }
+
+        public void setCount(int count) {
+            this.count = count;
+        }
     }
 }
