@@ -5,25 +5,32 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@XmlRootElement(name = "sale")
+@XmlRootElement
+@XmlType(name = "SALE", propOrder = {"card_number", "data", "products"})
 public class Sale {
 
     private int card_number;
     private int data;
+    @XmlAnyElement
     private List<Products> products = new ArrayList<>();
 
-    @XmlElement(name = "card_number")
+    public Sale() {
+    }
+
+    public Sale(int card_number, int data, List<Products> products) {
+        this.card_number = card_number;
+        this.data = data;
+        this.products = products;
+    }
+
     public void setCard_number(int card_number) {
         this.card_number = card_number;
     }
 
-    @XmlElement(name = "data")
     public void setData(int data) {
         this.data = data;
     }
 
-    @XmlElement(name = "products")
     public void setProducts(List<Products> products) {
         this.products = products;
     }

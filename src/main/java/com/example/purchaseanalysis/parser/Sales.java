@@ -4,12 +4,21 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "sales")
+@XmlRootElement
+@XmlType(name = "SALES")
 public class Sales {
 
+    public Sales() {
+    }
+
+    public Sales(List<Sale> sale) {
+        this.sale = sale;
+    }
+
+    @XmlAnyElement
     private List<Sale> sale = new ArrayList<>();
 
-    @XmlElement(name = "sale")
+    @XmlElement(name = "SALE")
     public void setSale(List<Sale> sale) {
         this.sale = sale;
     }
