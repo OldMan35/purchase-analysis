@@ -15,6 +15,7 @@ import java.util.List;
 public class Sales {
 
     @XmlElement(name = "SALE")
+    @XmlElementWrapper
     private List<Sale> sale = new ArrayList<>();
 
     @Data
@@ -22,8 +23,7 @@ public class Sales {
     @NoArgsConstructor
     @XmlRootElement(name = "SALE")
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "SALE", propOrder = {"card_number",
-            "data", "products"})
+    @XmlType(propOrder = {"card_number", "data", "products"})
     public static class Sale {
 
         @XmlElement(required = true)
@@ -31,6 +31,7 @@ public class Sales {
         @XmlElement(required = true)
         private int data;
         @XmlElement(required = true)
+        @XmlElementWrapper
         private List<Products> products = new ArrayList<>();
     }
 
@@ -39,10 +40,10 @@ public class Sales {
     @NoArgsConstructor
     @XmlRootElement(name = "PRODUCTS")
     @XmlAccessorType(XmlAccessType.FIELD)
-//    @XmlType(name = "PRODUCTS")
     public static class Products {
 
         @XmlElement(name = "PRODUCT")
+        @XmlElementWrapper
         List<Product> product = new ArrayList<>();
 
     }
@@ -50,10 +51,9 @@ public class Sales {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-//    @XmlRootElement(name = "PRODUCT")
+    @XmlRootElement(name = "PRODUCT")
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "PRODUCT", propOrder = {"product_code",
-            "name", "price", "count"})
+    @XmlType(propOrder = {"product_code", "name", "price", "count"})
     public static class Product {
         @XmlElement(required = true)
         private int product_code;
