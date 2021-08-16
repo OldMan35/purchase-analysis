@@ -4,10 +4,16 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "PRODUCTS")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Products {
 
-        List<Sales.Product> product = new ArrayList<>();
+    List<Product> product = new ArrayList<>();
 
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    @XmlElement(name = "product")
+    public void setProduct(List<Product> product) {
+        this.product = product;
+    }
 }
