@@ -22,7 +22,7 @@ public class test {
         List<String> fileNameList = walk.filter(Files::isRegularFile)
                 .map(Path::toString).collect(Collectors.toList());
 
-        JAXBContext context = JAXBContext.newInstance(Sales.class);
+        JAXBContext context = JAXBContext.newInstance(Sales.class, Sales.Sale.class, Sales.Products.class, Sales.Product.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         for (int i = 0; i < fileNameList.size(); i++) {
             Sales sales = (Sales) unmarshaller.unmarshal(new File(fileNameList.get(i)));

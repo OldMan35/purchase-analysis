@@ -1,68 +1,18 @@
 package com.example.purchaseanalysis.parser;
 
-import lombok.*;
-
 import javax.xml.bind.annotation.*;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@XmlRootElement(name = "SALES")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "sales")
 public class Sales {
 
-    @XmlElement(name = "SALE")
-    @XmlElementWrapper
+
     private List<Sale> sale = new ArrayList<>();
 
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @XmlRootElement(name = "SALE")
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(propOrder = {"card_number", "data", "products"})
-    public static class Sale {
-
-        @XmlElement(required = true)
-        private int card_number;
-        @XmlElement(required = true)
-        private int data;
-        @XmlElement(required = true)
-        @XmlElementWrapper
-        private List<Products> products = new ArrayList<>();
-    }
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @XmlRootElement(name = "PRODUCTS")
-    @XmlAccessorType(XmlAccessType.FIELD)
-    public static class Products {
-
-        @XmlElement(name = "PRODUCT")
-        @XmlElementWrapper
-        List<Product> product = new ArrayList<>();
-
-    }
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @XmlRootElement(name = "PRODUCT")
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(propOrder = {"product_code", "name", "price", "count"})
-    public static class Product {
-        @XmlElement(required = true)
-        private int product_code;
-        @XmlElement(required = true)
-        private String name;
-        @XmlElement(required = true)
-        private BigDecimal price;
-        @XmlElement(required = true)
-        private int count;
+    @XmlElement(name = "sale")
+    public void setSale(List<Sale> sale) {
+        this.sale = sale;
     }
 }
 
