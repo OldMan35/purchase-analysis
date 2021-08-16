@@ -19,6 +19,6 @@ import java.util.List;
 public class SalesXml {
 
     @XmlElement(name = "SALE")
-    private List<Sale> sale = new ArrayList<>();
+    private List<Sale> sales = new ArrayList<>();
 
 }
