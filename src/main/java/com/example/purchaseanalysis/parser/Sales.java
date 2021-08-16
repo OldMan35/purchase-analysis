@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SALES")
 public class Sales {
 

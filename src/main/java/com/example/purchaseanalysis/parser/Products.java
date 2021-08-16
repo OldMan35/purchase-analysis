@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PRODUCTS")
 public class Products {
 
-    @XmlAnyElement
+    @XmlElement(required = true)
+
     List<Product> product = new ArrayList<>();
 
     public Products() {

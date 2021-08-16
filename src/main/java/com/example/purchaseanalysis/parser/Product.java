@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PRODUCT", propOrder = {"product_code", "name", "price", "count"})
 public class Product {
 

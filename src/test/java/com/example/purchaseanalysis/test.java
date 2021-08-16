@@ -4,6 +4,7 @@ import com.example.purchaseanalysis.parser.Product;
 import com.example.purchaseanalysis.parser.Products;
 import com.example.purchaseanalysis.parser.Sale;
 import com.example.purchaseanalysis.parser.Sales;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -24,6 +25,10 @@ public class test {
         Stream<Path> walk = Files.walk(Paths.get("C:\\TestMaxi"));
         List<String> fileNameList = walk.filter(Files::isRegularFile)
                 .map(Path::toString).collect(Collectors.toList());
+        for (String string : fileNameList) {
+            System.out.println(string);
+        }
+
 
         JAXBContext context = JAXBContext.newInstance(Sales.class, Sale.class, Products.class, Product.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();

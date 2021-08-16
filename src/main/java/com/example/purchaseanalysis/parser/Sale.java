@@ -6,12 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SALE", propOrder = {"card_number", "data", "products"})
 public class Sale {
 
+    @XmlElement(required = true)
     private int card_number;
+
+    @XmlElement(required = true)
     private int data;
-    @XmlAnyElement
+
+    @XmlElement(required = true)
     private List<Products> products = new ArrayList<>();
 
     public Sale() {
