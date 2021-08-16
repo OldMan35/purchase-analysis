@@ -38,6 +38,7 @@ public class Sales {
     @AllArgsConstructor
     @NoArgsConstructor
     @XmlRootElement(name = "PRODUCTS")
+    @XmlAccessorType(XmlAccessType.FIELD)
 //    @XmlType(name = "PRODUCTS")
     public static class Products {
 
@@ -49,7 +50,7 @@ public class Sales {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    @XmlRootElement
+//    @XmlRootElement(name = "PRODUCT")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "PRODUCT", propOrder = {"product_code",
             "name", "price", "count"})
