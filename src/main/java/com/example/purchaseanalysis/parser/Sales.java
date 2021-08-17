@@ -1,28 +1,41 @@
 package com.example.purchaseanalysis.parser;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement
+
+@XmlRootElement(name = "SALES")
 public class Sales {
 
-    @XmlElement(name = "sale")
-    private List<Sale> sale = new ArrayList<>();
+    private int card_number;
+    private long date;
+    private List<Products> products;
 
-    public Sales() {
+    public List<Products> getProducts() {
+        return products;
+    }
+    @XmlElement(name = "PRODUCTS")
+    public void setProducts(List<Products> products) {
+        this.products = products;
     }
 
-    public Sales(List<Sale> sale) {
-        this.sale = sale;
+    public int getCard_number() {
+        return card_number;
     }
 
-    public void setSale(List<Sale> sale) {
-        this.sale = sale;
+    @XmlElement(name = "CARD_NUMBER")
+    public void setCard_number(int card_number) {
+        this.card_number = card_number;
     }
 
-    public List<Sale> getSale() {
-        return sale;
+    public long getDate() {
+        return date;
     }
+
+    @XmlElement(name = "DATE")
+    public void setDate(long date) {
+        this.date = date;
+    }
+
 }
 

@@ -3,64 +3,44 @@ package com.example.purchaseanalysis.parser;
 import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "products")
+@XmlRootElement(name = "PRODUCTS")
 public class Products {
 
-    @XmlElement(required = true)
-    Product product = new Product();
+    private int product_code;
+    private String name;
+    private BigDecimal price;
+    private int count;
 
-    @XmlRootElement
-    @XmlType(name = "product", propOrder = {"product_code", "name", "price", "count"})
-    public static class Product {
+    public int getProduct_code() {
+        return product_code;
+    }
+    @XmlElement(name = "PRODUCT_CODE")
+    public void setProduct_code(int product_code) {
+        this.product_code = product_code;
+    }
 
-        private int product_code;
-        private String name;
-        private BigDecimal price;
-        private int count;
+    public String getName() {
+        return name;
+    }
+    @XmlElement(name = "NAME")
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public Product() {
-        }
+    public BigDecimal getPrice() {
+        return price;
+    }
+    @XmlElement(name = "PRICE")
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
-        public Product(int product_code, String name, BigDecimal price, int count) {
-            this.product_code = product_code;
-            this.name = name;
-            this.price = price;
-            this.count = count;
-        }
+    public int getCount() {
+        return count;
+    }
 
-        public int getProduct_code() {
-            return product_code;
-        }
-
-
-        public void setProduct_code(int product_code) {
-            this.product_code = product_code;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public BigDecimal getPrice() {
-            return price;
-        }
-
-        public void setPrice(BigDecimal price) {
-            this.price = price;
-        }
-
-        public int getCount() {
-            return count;
-        }
-
-        public void setCount(int count) {
-            this.count = count;
-        }
+    public void setCount(int count) {
+        this.count = count;
     }
 }
+
