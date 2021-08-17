@@ -16,22 +16,22 @@ import java.util.stream.Stream;
 
 public class SalesReader {
 
-    @Value("${upload.path}")
-    private String uploadPath;
-
-
-    public void parser() throws JAXBException, IOException {
-
-        Stream<Path> walk = Files.walk(Paths.get(uploadPath));
-        List<String> fileNameList = walk.filter(Files::isRegularFile)
-                .map(Path::toString).collect(Collectors.toList());
-
-        JAXBContext context = JAXBContext.newInstance(Sales.class);
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        for (int i = 0; i < fileNameList.size(); i++) {
-            Sales sales = (Sales) unmarshaller.unmarshal(new File(fileNameList.get(i)));
-        }
-
-    }
+//    @Value("${upload.path}")
+//    private String uploadPath;
+//
+//
+//    public void parser() throws JAXBException, IOException {
+//
+//        Stream<Path> walk = Files.walk(Paths.get(uploadPath));
+//        List<String> fileNameList = walk.filter(Files::isRegularFile)
+//                .map(Path::toString).collect(Collectors.toList());
+//
+//        JAXBContext context = JAXBContext.newInstance(Sales.class);
+//        Unmarshaller unmarshaller = context.createUnmarshaller();
+//        for (int i = 0; i < fileNameList.size(); i++) {
+//            Sales sales = (Sales) unmarshaller.unmarshal(new File(fileNameList.get(i)));
+//        }
+//
+//    }
 
 }

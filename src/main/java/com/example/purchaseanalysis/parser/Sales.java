@@ -3,33 +3,23 @@ package com.example.purchaseanalysis.parser;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType
 @XmlRootElement(name = "SALES")
-public class Sales {
+public class SalesRoot {
 
     @XmlElement(name = "SALE")
-    private List<Sale> sale;
+    private List<SaleChild> sale;
 
-    public List<Sale> getSale() {
-        return sale;
+    @XmlType
+    public static class SaleChild {
+        @XmlElement(name = "SALE")
+        public Sale sale;
+    }
+    @XmlType
+    public static class Sale{
+
     }
 
-    public void setSale(List<Sale> sale) {
-        this.sale = sale;
-    }
-
-    public Sales() {
-    }
-
-    public Sales(List<Sale> sale) {
-        this.sale = sale;
-    }
-
-    @Override
-    public String toString() {
-        return "Sales{" +
-                "sale=" + sale +
-                '}';
-    }
 }
 

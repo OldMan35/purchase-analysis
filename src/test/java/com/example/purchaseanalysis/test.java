@@ -1,7 +1,5 @@
 package com.example.purchaseanalysis;
 
-import com.example.purchaseanalysis.parser.Products;
-import com.example.purchaseanalysis.parser.Sale;
 import com.example.purchaseanalysis.parser.Sales;
 
 import javax.xml.bind.JAXBContext;
@@ -9,12 +7,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class test {
 
