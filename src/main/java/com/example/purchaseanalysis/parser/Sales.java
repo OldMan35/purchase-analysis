@@ -7,35 +7,29 @@ import java.util.List;
 @XmlRootElement(name = "SALES")
 public class Sales {
 
-    private int card_number;
-    private long date;
-    private List<Products> products;
+    @XmlElement(name = "SALE")
+    private List<Sale> sale;
 
-    public List<Products> getProducts() {
-        return products;
-    }
-    @XmlElement(name = "PRODUCTS")
-    public void setProducts(List<Products> products) {
-        this.products = products;
+    public List<Sale> getSale() {
+        return sale;
     }
 
-    public int getCard_number() {
-        return card_number;
+    public void setSale(List<Sale> sale) {
+        this.sale = sale;
     }
 
-    @XmlElement(name = "CARD_NUMBER")
-    public void setCard_number(int card_number) {
-        this.card_number = card_number;
+    public Sales() {
     }
 
-    public long getDate() {
-        return date;
+    public Sales(List<Sale> sale) {
+        this.sale = sale;
     }
 
-    @XmlElement(name = "DATE")
-    public void setDate(long date) {
-        this.date = date;
+    @Override
+    public String toString() {
+        return "Sales{" +
+                "sale=" + sale +
+                '}';
     }
-
 }
 

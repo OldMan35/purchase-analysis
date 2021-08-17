@@ -6,16 +6,16 @@ import java.math.BigDecimal;
 @XmlRootElement(name = "PRODUCTS")
 public class Products {
 
-    private int product_code;
+    private Integer product_code;
     private String name;
     private BigDecimal price;
-    private int count;
+    private Integer count;
 
-    public int getProduct_code() {
+    public Integer getProduct_code() {
         return product_code;
     }
     @XmlElement(name = "PRODUCT_CODE")
-    public void setProduct_code(int product_code) {
+    public void setProduct_code(Integer product_code) {
         this.product_code = product_code;
     }
 
@@ -35,11 +35,11 @@ public class Products {
         this.price = price;
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 }

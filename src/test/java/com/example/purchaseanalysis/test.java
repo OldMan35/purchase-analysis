@@ -32,9 +32,8 @@ public class test {
         Unmarshaller unmarshaller = context.createUnmarshaller();
 //        for (int i = 0; i < fileNameList.size(); i++) {
         Sales sales = (Sales) unmarshaller.unmarshal(new File("C:\\TestMaxi\\sale_05.05.2018.xml"));
-        System.out.println(sales.getCard_number());
-        System.out.println(sales.getDate());
-        System.out.println(sales.getProducts());
+        System.out.println(sales.toString());
+
 //        }
     }
 }
