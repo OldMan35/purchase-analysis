@@ -1,6 +1,8 @@
 package com.example.purchaseanalysis;
 
-import com.example.purchaseanalysis.parser.Sales;
+import com.example.purchaseanalysis.parser.Product;
+import com.example.purchaseanalysis.parser.Sale;
+import com.example.purchaseanalysis.parser.SaleRoot;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -10,6 +12,14 @@ import java.io.IOException;
 
 public class test {
 
+//    private Product product;
+//    private Sale sale;
+//
+//    public test(Product product, Sale sale) {
+//        this.product = product;
+//        this.sale = sale;
+//    }
+
     public static void main(String[] args) throws JAXBException, IOException {
 
 //        Stream<Path> walk = Files.walk(Paths.get("C:\\TestMaxi"));
@@ -18,14 +28,15 @@ public class test {
 //        for (String string : fileNameList) {
 //            System.out.println(string);
 //        }
+        Product product = new Product();
+        Sale sale = new Sale();
 
 
-        JAXBContext context = JAXBContext.newInstance(Sales.class);
+        JAXBContext context = JAXBContext.newInstance(SaleRoot.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
 //        for (int i = 0; i < fileNameList.size(); i++) {
-        Sales sales = (Sales) unmarshaller.unmarshal(new File("C:\\TestMaxi\\sale_05.05.2018.xml"));
-        System.out.println(sales.toString());
-
+        SaleRoot saleRoot = (SaleRoot) unmarshaller.unmarshal(new File("C:\\TestMaxi\\sale_05.05.2018.xml"));
+        System.out.println(saleRoot);
 //        }
     }
 }
