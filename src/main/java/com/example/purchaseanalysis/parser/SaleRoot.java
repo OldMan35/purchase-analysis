@@ -11,6 +11,10 @@ public class SaleRoot {
     @XmlElement(name = "SALE")
     private List<Sale> sale;
 
+    public void print() {
+        System.out.println(sale.toString());
+    }
+
     public SaleRoot() {
     }
 
